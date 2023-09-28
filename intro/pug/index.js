@@ -13,7 +13,7 @@ app.set(`views`, path.join(__dirname, `views`)); //set the view directory
 app.get(`/demo`, (req, res) => {
     res.status(200).render(`demo`, { title: `hey`, message: `hello duniya` })
 })
-app.get(`/`,(req,res)=>{
+app.get(`/`, (req, res) => {
     res.status(200).render(`index.pug`)
 })
 
