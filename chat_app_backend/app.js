@@ -33,6 +33,7 @@ const io = require('socket.io')(server);
 // Listen for the `connection` event.
 io.on('connection', (socket) => {
     socket.on('message', (message) => {
+        io.emit('message',message);
         console.log("message is", message);
     })
     console.log("connected successfully", socket.id);

@@ -11,6 +11,7 @@
     <h1>Chat app</h1>
     <input type="text" id="message" placeholder="Enter message">
     <button id="sendBtn">Send</button>
+    <div id="messagedata"></div>
 
     <script src="/socket.io/socket.io.js">
     </script>
@@ -18,6 +19,12 @@
         const socket = io();
         const sendBtn = document.getElementById('sendBtn');
         const messageInput = document.getElementById('message');
+        const messagedata = document.getElementById("messagedata");
+        socket.on('message', (message) => {
+            const p = document.createElement('p');
+            p.innerText = message;
+            messagedata.appendChild(p);
+        });
         sendBtn.addEventListener('click', e => {
             const message = messageInput.value;
             console.log(message);
