@@ -1,5 +1,8 @@
 FROM node:20
 WORKDIR /app
-COPY package* .
+COPY package.json .
 RUN npm install 
-COPY . .
+COPY . ./
+EXPOSE 80
+CMD [ "npm",'start']
+
